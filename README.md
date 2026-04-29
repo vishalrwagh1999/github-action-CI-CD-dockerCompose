@@ -47,3 +47,33 @@ Ensure the Docker Compose plugin is globally accessible. If you encounter a "com
 sudo mkdir -p /usr/lib/docker/cli-plugins
 sudo cp /root/.docker/cli-plugins/docker-compose /usr/lib/docker/cli-plugins/
 sudo chmod +x /usr/lib/docker/cli-plugins/docker-compose
+4. Running the Pipeline
+CI Workflow: Triggered on every push to the main branch. It builds images and pushes them to Docker Hub.
+
+CD Workflow: Automatically starts after a successful CI run. It SSHes into your EC2, pulls the latest images, and restarts the containers.
+
+5. Manual Execution (Optional)
+If you wish to run the project manually on the EC2:
+
+Bash
+git clone [https://github.com/vishalrwagh1999/github-action-CI-CD-dockerCompose.git](https://github.com/vishalrwagh1999/github-action-CI-CD-dockerCompose.git)
+cd github-action-CI-CD-dockerCompose
+export DOCKERHUB_USERNAME=your_username
+docker compose up -d
+⚠️ Troubleshooting & Lessons Learned
+Environment Variables: Docker Compose requires the DOCKERHUB_USERNAME to be exported in the shell session to resolve image names in the YAML file.
+
+SSH Path Issues: Non-interactive SSH shells might not load the same PATH as manual logins. Always ensure the Docker Compose plugin is in /usr/lib/docker/cli-plugins/.
+
+Database Persistence: Ensure the mysql_data volume is defined to keep your data safe during container restarts.
+
+🔮 Future Roadmap: Kubernetes
+The next phase of this project involves migrating from Docker Compose to Kubernetes (K8s) to leverage:
+
+Self-healing: Auto-restarting failed pods.
+
+Auto-scaling: Scaling based on traffic via HPA.
+
+Zero-downtime: Rolling updates for seamless deployments.
+
+Developed by Vishal Wagh.
