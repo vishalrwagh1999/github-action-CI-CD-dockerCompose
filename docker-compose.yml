@@ -22,7 +22,7 @@ services:
 
   # Go Backend API
   backend:
-    image: ${DOCKERHUB_USERNAME}/skillpulse-backend:vishallatest
+    image: vishaldocker85/skillpulse-backend:vishallatest
     restart: unless-stopped
     environment:
       DB_HOST: db
