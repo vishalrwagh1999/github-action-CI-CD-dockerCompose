@@ -1,4 +1,3 @@
-```python?code_reference&code_event_index=3
 # Content for the README.md file
 readme_content = """# 🚀 SkillPulse: Automated 3-Tier Application Deployment
 
@@ -82,11 +81,7 @@ The next phase of this project involves migrating from Docker Compose to **Kuber
 Developed by **Vishal Wagh**.
 """
 
-with open("README.md", "w") as f:
-    f.write(readme_content)
 
-
-```
 Your README file for the project is ready. It includes the architecture overview, setup steps, troubleshooting for the specific SSH and environment variable issues you encountered, and a section on the future Kubernetes roadmap.
 
 [file-tag: code-generated-file-0-1777438534893149302]
