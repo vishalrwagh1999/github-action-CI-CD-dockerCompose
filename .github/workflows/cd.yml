@@ -20,7 +20,7 @@ jobs:
                   script: |
                     git clone https://github.com/vishalrwagh1999/github-action-CI-CD-dockerCompose.git
                     cd ~/github-action-CI-CD-dockerCompose
-                    export DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
+                    #export DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} as global compose added via ec2 compose plugin copy paste from roor/.docker
                     git pull origin main
                     docker compose pull
                     docker compose down && docker compose up -d
